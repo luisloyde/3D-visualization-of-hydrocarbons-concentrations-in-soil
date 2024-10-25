@@ -29,7 +29,7 @@ MPL=3000 #Maximum permisible limit "LMP" in mexican regulation
 grid_x, grid_y, grid_z = np.mgrid[
     min(x):max(x):1,
     min(y):max(y):1,
-    min(z):0:0.2
+    min(z):0:1
     ]
 
 grid_pollutant = griddata((x, y, z), pollutant_concentration, (grid_x, grid_y, grid_z), method='linear')
@@ -137,3 +137,5 @@ fig_contaminated.update_layout(
 
 # Mostrar la figura
 fig_contaminated.show()
+
+pyo.plot(fig, filename='polluted_visualization.html', auto_open=True)
