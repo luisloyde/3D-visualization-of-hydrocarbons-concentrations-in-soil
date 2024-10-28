@@ -27,9 +27,9 @@ pollutant_concentration = data['HFP'].values #choose pollutant concentration col
 MPL=3000 #Maximum permisible limit "LMP" in mexican regulation
 
 grid_x, grid_y, grid_z = np.mgrid[
-    min(x):max(x)+1:1,
-    min(y):max(y)+1:1,
-    min(z):0+1:1
+    min(x):max(x):1,
+    min(y):max(y):1,
+    min(z):0+1:0.1
     ]
 
 grid_pollutant = griddata((x, y, z), pollutant_concentration, (grid_x, grid_y, grid_z), method='linear')
@@ -74,3 +74,5 @@ import plotly.offline as pyo
 
 # Genera un archivo HTML
 pyo.plot(fig, filename='volumetric_visualization.html', auto_open=True)
+
+
